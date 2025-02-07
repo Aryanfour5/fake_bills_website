@@ -1,14 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
 
-// https://vite.dev/config/
 export default defineConfig({
   server: {
-    host: true,  // Allows external access
-    port: 5173,  // Set any default port
-    strictPort: true,  // Ensures the port does not change
-    preview: {
-      allowedHosts: ["fake-bills-website-2.onrender.com"]
-    }
-  }
+    proxy: {
+      '/api': {
+        target: 'https://fake-bills-website-1.onrender.com',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+  preview: {
+    allowedHosts: ['fake-bills-website-1.onrender.com'],
+  },
 });
