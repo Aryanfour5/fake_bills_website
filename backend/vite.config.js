@@ -9,6 +9,7 @@ export default {
   },
   preview: {
     port: process.env.PORT || 4173,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: ["fake-bills-website-1.onrender.com"]
   }
 };
