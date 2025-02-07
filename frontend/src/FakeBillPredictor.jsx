@@ -27,7 +27,7 @@ const FakeBillPredictor = () => {
     setPrediction(null);
 
     try {
-      const response = await axios.post("http://localhost:5000/predict", {
+      const response = await axios.post("https://fake-bills-website-1.onrender.com/predict", {
         features: Object.values(features).map(Number), // Convert to numbers
       });
       setPrediction(response.data.prediction[0] === 1 ? "Fake Bill" : "Genuine Bill");
