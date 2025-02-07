@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.post("/predict", async (req, res) => {
     try {
-        const response = await axios.post("https://your-flask-app-url.com/predict", req.body);
+        const response = await axios.post("https://fake-bills-website.onrender.com/predict", req.body);
         res.json(response.data);
     } catch (error) {
         res.status(500).json({ error: "Prediction failed" });
